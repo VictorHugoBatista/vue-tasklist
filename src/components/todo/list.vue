@@ -1,7 +1,7 @@
 <template>
   <ul>
-    <li v-for="item in listItems" v-bind:key="item.id">
-      {{ item.title }}  <button v-on:click="removeItem(item.id)">Remove</button>
+    <li v-for="(item, itemIndex) in listItems" v-bind:key="itemIndex">
+      {{ item.title }}  <button v-on:click="removeItem(itemIndex)">Remove</button>
     </li>
   </ul>
 </template>
@@ -15,8 +15,8 @@ export default {
     },
   },
   methods: {
-    removeItem(itemId) {
-      this.$store.commit('removeItem', {itemId});
+    removeItem(itemIndex) {
+      this.$store.commit('removeItem', {itemIndex});
     },
   },
 };

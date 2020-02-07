@@ -15,17 +15,11 @@ export default new Vuex.Store({
         return;
       }
       state.todo.listItems.push({
-        id: state.todo.listItems.length,
         title: newItem,
       });
     },
-    removeItem(state, {itemId}) {
-      state.todo.listItems.forEach((item, itemArrayIndex) => {
-        if (itemId !== item.id) {
-          return;
-        }
-        state.todo.listItems.splice(itemArrayIndex, 1);
-      });
+    removeItem(state, {itemIndex}) {
+      state.todo.listItems.splice(itemIndex, 1);
     },
     clear(state) {
       state.todo.listItems = [];
